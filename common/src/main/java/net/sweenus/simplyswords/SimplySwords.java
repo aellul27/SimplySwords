@@ -94,7 +94,7 @@ public class SimplySwords {
                   "config_version": %s
                 }""", version.substring(0, 4));
 
-        File configFile = Config.createFile(FMLPaths.CONFIGDIR.get() + "simplyswords_extra/backupconfig.json", defaultConfig, false);
+        File configFile = Config.createFile(Platform.getConfigFolder() + "simplyswords_extra/backupconfig.json", defaultConfig, false);
         JsonObject json = Config.getJsonObject(Config.readFile(configFile));
         if (json.has("config_version") && version.startsWith(json.get("config_version").getAsString())) {
             isConfigOutdated = false;
